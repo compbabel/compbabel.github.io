@@ -4,9 +4,17 @@
         <script src="js/script.js"></script>
 </head>
 <body>
-    <h1>Counter</h1>
+    <h1>STACK</h1>
     <div>
-        <button id="countDownButton" onclick="countdown()">10</button>
+        Stack: <p id="stack">xxx</p>
+        peek: <p id="peek"> xxx</p>
+        poped: <p id="poped">xxx </p>
+
+        <button id="peek" onclick="peek_stack()">peek_stack</button><br><br>
+        <button id="push" onclick="push_stack()">push_stack</button><br><br>
+        <button id="pop" onclick="pop_stack()">pop_stack</button><br><br>
+        
+        <script>init();</script>
     </div>
 </body>
 </html>
