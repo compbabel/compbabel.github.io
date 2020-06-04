@@ -1,26 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/default.css">
     <script src="js/main.js"></script>
     <script src="js/stackqueuehash.js"></script>
 </head>
 <body>
-    <h1>REVERSE POLISH</h1>
-    <div>
-        <form action="" method="">
-            <label for="infix">Please enter an infix expression:</label>
-            <input type="text" id="infix" name="" size="40"><br><br>
-            <label for="postfix">convert to postfix notation:</label>
-            <input type="text" id="postfix" name="" size="40"><br><br>
-            <label for="result">Evaluate the expression:</label>
-            <input type="text" id="result" name="" size="40"><br><br>
-        </form>
-        <button id="doit" onclick="doit()">Do it</button><br><br>  
+    <div row>
+        <div class="col-md-6">
+            <h1>REVERSE POLISH</h1>
+        </div>
+    </div>
+         
+    <form action="" method="">
+        <div row>
+            <div class="col-md-4">
+                <p>Please enter an infix expression:</p>
+            </div>
+            <div class="col-md-6">
+                <input type="text" id="infix" name="" size="52"><br><br>
+            </div>
+        </div>
+        <div row>
+            <div class="col-md-4">
+                <p>convert to postfix notation:</p>
+            </div>
+            <div class="col-md-6">
+                <input type="text" id="postfix" name="" size="40"><br><br>
+            </div>
+        </div>
+        <div row>
+            <div class="col-md-4">
+                <p>Evaluate the expression:</p>
+            </div>
+            <div class="col-md-6">
+                <input type="text" id="result" name="" size="40"><br><br>
+            </div>
+            <br>
+        </div>
+    </form>
+    <div row>
+        <div class="col-md-12">
+            <button id="doit" onclick="doit()">Do it</button><br><br>  
+        </div>
+    </div>
 
-        <p id="debugtxt"></p>
+    <div row>
+        <div class="col-md-12">
+            <p id="debugtxt"></p>
+        </div>
+    </div>
 
         <script>init();</script>
-    </div>
 </body>
 </html>
