@@ -2,57 +2,61 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="js/main.js"></script>
     <script src="js/stackqueuehash.js"></script>
 </head>
 <body>
-    <div row>
-        <div class="col-md-6">
-            <br>
-            <h1>REVERSE POLISH</h1>
-        </div>
+    <div class="container">
+    <div class="row justify-content-around my-row">
+        <div class="col-md-12 offset-md-3">
+        <br>
+        <h1>REVERSE POLISH</h1><br>
+    </div>
     </div>
          
     <form action="" method="">
-        <div row>
-            <div class="col-md-4">
-                <p>Please enter an infix expression:</p>
+        <div class="row">
+            <div class="col-md-3">
+                Please enter an infix expression:<br><br>
             </div>
-            <div class="col-md-6">
-                <input type="text" id="infix" name="" size="52"><br><br>
-            </div>
-        </div>
-        <div row>
-            <div class="col-md-4">
-                <p>convert to postfix notation:</p>
-            </div>
-            <div class="col-md-6">
-                <input type="text" id="postfix" name="" size="40"><br><br>
+            <div class="col-md-6 mycol">
+                <input type="text" id="infix" name="" size="50">
             </div>
         </div>
-        <div row>
-            <div class="col-md-4">
-                <p>Evaluate the expression:</p>
+        <div class="row">
+            <div class="col-md-3">
+                convert to postfix notation:<br><br>
             </div>
             <div class="col-md-6">
-                <input type="text" id="result" name="" size="40"><br><br>
+                <div class="answer" id="postfix">__________________________________________________________</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                Evaluate the expression:<br><br>
+            </div>
+            <div class="col-md-6">
+                <div class="answer" id="result">__________________________________________________________</div>
             </div>
             <br>
         </div>
     </form>
-    <div row>
-        <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+    <div class="col-md-8">
             <button id="doit" onclick="doit()">Do it</button><br><br>  
         </div>
     </div>
 
-    <div row>
+    <div class="row">
         <div class="col-md-12">
             <p id="debugtxt"></p>
         </div>
     </div>
+    </div>
 
-        <script>init();</script>
+    <script>init();</script>
 </body>
 </html>

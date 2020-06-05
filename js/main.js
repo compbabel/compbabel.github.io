@@ -2,10 +2,22 @@ var queNY;
 var stackTX;
 var queCA;
 var stackPOL;
+var elem_infix;
 
 function init() {
     init_hash();
-    document.getElementById("infix").value = "40 - 5 * (9 - 6) + 32";
+    set_listener();
+
+    document.getElementById("infix").value = "10.5 - 5 * (9 - 7) + 1.3";
+}
+
+function set_listener(elem) {
+    document.getElementById("infix").addEventListener("keydown", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("doit").click();
+        }
+    });
 }
 
 function doit() {
@@ -14,10 +26,10 @@ function doit() {
 
     Infix2Postfix(infix_str)    // postfix in queCA
     var str = queCA.data();
-    document.getElementById("postfix").value = str;
+    document.getElementById("postfix").innerHTML = str;
 
     var val = EvalPolish()
-    document.getElementById("result").value = val;
+    document.getElementById("result").innerHTML = val;
 }
 
 function Infix2Postfix(infix_str) {
@@ -55,7 +67,7 @@ function Instr2Que(in_str) {
     var ddd = "";
     for(var i = 0; i < in_str.length; i++) {
         var c = in_str.charAt(i);
-        if(isNumeric(c))
+        if(isNumeric(c) || (c == '.'))
             ddd += c;
         else {
             if(ddd != "") {
@@ -104,7 +116,9 @@ function EvalPolish() {
             DoOp(car);
         //debug_CP();
     }
-    return stackPOL.pop();
+    var v = stackPOL.pop();
+    v = Math.floor(v * 10000000 + 0.5) / 10000000;
+    return v;
 }
 
 function DoOp(op) {
@@ -118,7 +132,7 @@ function DoOp(op) {
     else if (op == '*')
         res = oper1 * oper2;
     else if (op == '/')
-        res = Math.floor(oper1 / oper2);
+        res = oper1 / oper2;
     stackPOL.push(res)
 }
 

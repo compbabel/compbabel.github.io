@@ -1,0 +1,14 @@
+body {
+    background-color: floralwhite;
+    margin-left: 30px;
+    color: purple;
+}
+
+.answer {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.my-row {
+    color: purple;
+}
