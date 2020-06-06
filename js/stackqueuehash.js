@@ -66,6 +66,10 @@ class Queue {
         return this.arr[0];
     }
 
+    peektail() {
+        return this.arr[this.arr.length-1];
+    }
+
     data() {
         return this.arr;
     }

@@ -3,9 +3,11 @@ var queNY;
 var stackTX;
 var queCA;
 var stackPOL;
+var parenth;
 
 function init() {
     init_hash();
+    parenth = 0;
 
     elem_display = document.getElementById("textbox");
 }
@@ -15,27 +17,49 @@ function key_pressed(me) {
         return;
 
     var c = me.innerText || me.textContent;
+    if(!legal_char(c)) {
+        alert("Illegal symbol!");
+        return;
+    }
+
     append(c);
     clear_answer();
 }
 
 function doit() {
     var infix_str = get_text();
+    if(!infix_str)
+        return;
 
+    if(!llegal_exp(infix_str)) {
+        alert("Empty string or illigal expression");
+        return;
+    }
     Infix2Postfix(infix_str)    // postfix in queCA
-    var str = queCA.data();
 
     var val = EvalPolish()
     set_answer(val);
 }
 
+function llegal_exp(str) {
+    if(parenth != 0)
+        return false;
+
+    var c = str.charAt(str.length-1);
+    if(isOperator(c) || (c == '.'))
+        return false;
+        
+    return true;
+}
+
 function Infix2Postfix(infix_str) {
-    queNY = Instr2Que(infix_str);
-    //debug_NTC();
+    queNY = Str2Que(infix_str);
+    queNY.enq('!');
+
     stackTX = new Stack();
     stackTX.push('!');
     queCA = new Queue();
-   
+  
     var car;
     while(car = queNY.peek()) {
         if(isNumeric(car)) {
@@ -43,18 +67,17 @@ function Infix2Postfix(infix_str) {
         }
         else {
             var code = get_code(stackTX.peek() + car);
-            //debugmsg("code = " + stackTX.peek() + "," + car + "," + code);
+            //error_message("code = " + stackTX.peek() + "," + car + "," + code);
             var moveon = action(code, car);
             if(moveon) {
                 queNY.deq();
             }
         }
-        //debug_NTC();
     }
 }
 
-function Instr2Que(in_str) {
-    in_str = in_str.replace(/ /g, '') + "!";
+function Str2Que(in_str) {
+    in_str = in_str.replace(/ /g, '');
     // handle unary -
     if (in_str.charAt(0) == '-')
         in_str = '0' + in_str             // ex. -3*6
@@ -74,6 +97,9 @@ function Instr2Que(in_str) {
             que.enq(c);
         }
     }
+    if(ddd != "")
+        que.enq(ddd);
+
     return que;
 }
 
@@ -95,7 +121,7 @@ function action (code, car) {
             break;
                        
         case 5:
-            debugmsg ('Error');
+            error_message ('Error');
             break;
 
         default:
@@ -111,7 +137,6 @@ function EvalPolish() {
             stackPOL.push(car);
         else
             DoOp(car);
-        //debug_CP();
     }
     var v = stackPOL.pop();
     v = Math.floor(v * 10000000 + 0.5) / 10000000;
@@ -134,8 +159,91 @@ function DoOp(op) {
 }
 
 //=================================================================
+// Error checking
+//=================================================================
+function legal_char(c) {
+    var str = get_text();
+    var que = Str2Que(str);
+    var tail = que.peektail();
+    if(!tail) {
+        if(isNumeric(c) || (c=='.') || (c=='-'))
+            return true;
+        else if(c == '(') {
+            parenth += 1;
+            return true;
+        }
+        else
+            return false;
+    }
+   
+    if(isNumeric(tail)) {
+        if(c == '(')
+            return false;
+        if(c == ')') {
+            if(parenth == 0)
+                return false;
+            else {
+                parenth -= 1;
+                return true;
+            }
+        }
+        if(c == '.') {
+            if(tail.match(/\./g))
+                return false;
+            else
+                return true;
+        }
+        return true;
+    }
+
+    if(isOperator(tail)) {
+        if(isNumeric(c) || (c == '.'))
+            return true;
+        if(c == '(') {
+            parenth += 1;
+            return true;
+        }
+        return false;
+    }
+
+    if(tail == '.') {
+        return (isNumeric(c));
+    }
+
+    if(tail == '(') {
+        if(isNumeric(c) || (c == '-')) {
+            return true;
+        }
+        else if (c == '(') {
+            parenth += 1;
+            return true;
+        }
+        else
+            return false;
+    }
+
+    if(tail == ')') {
+        if(isOperator(c))
+            return true;
+        if(c == ')') {
+            if(parenth == 0)
+                return false;
+            parenth -= 1;
+            return true;
+        }
+        return false;
+    }
+
+    return true;    // Should not reach here
+}
+
+//=================================================================
 // Utils
 //=================================================================
+function isOperator(c) {
+    return ((c == '+') || (c == '-') || (c == 'x') || (c == '/'));
+}
+
 function isNumeric(s) {
     return !isNaN(s);
 }
@@ -156,17 +264,27 @@ function set_answer(str) {
     document.getElementById("answer").innerHTML = str;
 }
 
+function clear_answer(){
+    document.getElementById("answer").innerHTML = "_____";
+}
+
 function key_clear() {
     elem_display.innerHTML = "";
     clear_answer();
+    parenth = 0;
 }
 
 function key_del() {
     var str = elem_display.innerHTML;
     elem_display.innerHTML = str.slice(0, -1);
     clear_answer();
+    var tail = str.charAt(str.length - 1);
+    if(tail == '(')
+        parenth -= 1;
+    else if(tail == ')')
+        parenth += 1;
 }
 
-function clear_answer(){
-    document.getElementById("answer").innerHTML = "_____";
+function set_message(msg) {
+    document.getElementById("msg").innerHTML = msg;
 }
