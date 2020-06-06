@@ -1,14 +1,67 @@
 body {
+    margin-top: 20px;
+    margin-left: 2px;
     background-color: floralwhite;
-    margin-left: 30px;
+}
+
+.my-container {
     color: purple;
 }
 
-.answer {
+#myh1 {
+    padding: 2px;
+    margin: 2px;
+    margin-top: 8px;
+    width: 265px;
+    height: 60px;
+    text-align: center;
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: bold;
+    font-size: xx-large;
+    color: purple;
+}
+
+#textbox {
+    border: 4px solid purple;
+    padding: 8px;
+    margin: 2px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    width: 258px;
+    height: 60px;
+    text-align: right;
+    font-size: xx-large;
+}
+
+#answer {
+    padding: 12px;
+    margin: 2px;
+    margin-top: 2px;
+    margin-bottom: 12px;
+    margin-right: 6px;
+    width: 258px;
+    height: 60px;
+    text-align: right;
+    font-size: xx-large;
     text-decoration: underline;
 }
 
-.my-row {
-    color: purple;
+.key {
+    border: 4px solid purple;
+    padding: 2px;
+    margin: 3px;
+    margin-top: 3px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.mycol {
+    border: 4px solid purple;
+    padding: 4px;
+    margin: 6px;
+    text-align: center;
+
 }

@@ -1,35 +1,32 @@
+var elem_display;
 var queNY;
 var stackTX;
 var queCA;
 var stackPOL;
-var elem_infix;
 
 function init() {
     init_hash();
-    set_listener();
 
-    document.getElementById("infix").value = "10.5 - 5 * (9 - 7) + 1.3";
+    elem_display = document.getElementById("textbox");
 }
 
-function set_listener(elem) {
-    document.getElementById("infix").addEventListener("keydown", function(event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            document.getElementById("doit").click();
-        }
-    });
+function key_pressed(me) {
+    if(get_text().length > 13)
+        return;
+
+    var c = me.innerText || me.textContent;
+    append(c);
+    clear_answer();
 }
 
 function doit() {
-    clearmsg();
-    var infix_str = get_infix();
+    var infix_str = get_text();
 
     Infix2Postfix(infix_str)    // postfix in queCA
     var str = queCA.data();
-    document.getElementById("postfix").innerHTML = str;
 
     var val = EvalPolish()
-    document.getElementById("result").innerHTML = val;
+    set_answer(val);
 }
 
 function Infix2Postfix(infix_str) {
@@ -129,7 +126,7 @@ function DoOp(op) {
         res = oper1 + oper2;
     else if (op == '-')
         res = oper1 - oper2;
-    else if (op == '*')
+    else if (op == 'x')
         res = oper1 * oper2;
     else if (op == '/')
         res = oper1 / oper2;
@@ -142,26 +139,34 @@ function DoOp(op) {
 function isNumeric(s) {
     return !isNaN(s);
 }
-function get_infix() {
-    return document.getElementById("infix").value;
+
+function get_text() {
+    return elem_display.innerHTML;
 }
 
-function debug_NTC() {
-    debugmsg("(NY) " + queNY.data());
-    debugmsg("(TX) " + stackTX.data());
-    debugmsg("(CA) " + queCA.data());
+function append(c) {
+    Set_text(elem_display.innerHTML + c);
 }
 
-function debug_CP() {
-    debugmsg("(CA) " + queCA.data());
-    debugmsg("(POL) " + stackPOL.data());
+function Set_text(str) {
+    elem_display.innerHTML = str;
 }
 
-function debugmsg(msg) {
-    //str = document.getElementById("debugtxt").innerHTML + "<br>" + msg;
-    document.getElementById("debugtxt").innerHTML += "<br>" + msg;;
+function set_answer(str) {
+    document.getElementById("answer").innerHTML = str;
 }
 
-function clearmsg() {
-    document.getElementById("debugtxt").innerHTML = "";
+function key_clear() {
+    elem_display.innerHTML = "";
+    clear_answer();
+}
+
+function key_del() {
+    var str = elem_display.innerHTML;
+    elem_display.innerHTML = str.slice(0, -1);
+    clear_answer();
+}
+
+function clear_answer(){
+    document.getElementById("answer").innerHTML = "_____";
 }

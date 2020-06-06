@@ -1,8 +1,8 @@
 var hash;
 
 function init_hash() {
-    var sym_cols = '!+-*/()';
-    var sym_rows = '!+-*/(';
+    var sym_cols = '!+-x/()';
+    var sym_rows = '!+-x/(';
     
     var table = [[4,1,1,1,1,1,5],
     [2,2,2,1,1,1,2],
