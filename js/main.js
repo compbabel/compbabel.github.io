@@ -32,7 +32,7 @@ function doit() {
         return;
 
     if(!llegal_exp(infix_str)) {
-        alert("Empty string or illigal expression");
+        alert("Illigal expression");
         return;
     }
     Infix2Postfix(infix_str)    // postfix in queCA
@@ -55,6 +55,7 @@ function llegal_exp(str) {
 function Infix2Postfix(infix_str) {
     queNY = Str2Que(infix_str);
     queNY.enq('!');
+    debugger;
 
     stackTX = new Stack();
     stackTX.push('!');
