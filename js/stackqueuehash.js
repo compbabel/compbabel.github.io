@@ -1,6 +1,6 @@
 var hash;
 
-function init_hash() {
+function initHash() {
     var sym_cols = '!+-x/()';
     var sym_rows = '!+-x/(';
     
@@ -22,7 +22,7 @@ function init_hash() {
     }
 }
 
-function get_code(key) {
+function getCode(key) {
     var val = hash.get(key);
     return val;
 }
@@ -66,7 +66,7 @@ class Queue {
         return this.arr[0];
     }
 
-    peektail() {
+    peekTail() {
         return this.arr[this.arr.length-1];
     }
 

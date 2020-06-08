@@ -6,42 +6,42 @@ var stackPOL;
 var parenth;
 
 function init() {
-    init_hash();
+    initHash();
     parenth = 0;
 
     elem_display = document.getElementById("textbox");
 }
 
-function key_pressed(me) {
-    if(get_text().length > 13)
+function keyPressed(me) {
+    if(getText().length > 13)
         return;
 
     var c = me.innerText || me.textContent;
-    if(!legal_char(c)) {
+    if(!legalChar(c)) {
         alert("Illegal symbol!");
         return;
     }
 
     append(c);
-    clear_answer();
+    clearAnswer();
 }
 
 function doit() {
-    var infix_str = get_text();
+    var infix_str = getText();
     if(!infix_str)
         return;
 
-    if(!llegal_exp(infix_str)) {
+    if(!legalExp(infix_str)) {
         alert("Illigal expression");
         return;
     }
-    Infix2Postfix(infix_str)    // postfix in queCA
+    infix2Postfix(infix_str)    // postfix in queCA
 
-    var val = EvalPolish()
-    set_answer(val);
+    var val = evalPolish()
+    setAnswer(val);
 }
 
-function llegal_exp(str) {
+function legalExp(str) {
     if(parenth != 0)
         return false;
 
@@ -52,8 +52,8 @@ function llegal_exp(str) {
     return true;
 }
 
-function Infix2Postfix(infix_str) {
-    queNY = Str2Que(infix_str);
+function infix2Postfix(infix_str) {
+    queNY = str2Que(infix_str);
     queNY.enq('!');
     debugger;
 
@@ -67,8 +67,7 @@ function Infix2Postfix(infix_str) {
             queCA.enq(queNY.deq());
         }
         else {
-            var code = get_code(stackTX.peek() + car);
-            //error_message("code = " + stackTX.peek() + "," + car + "," + code);
+            var code = getCode(stackTX.peek() + car);
             var moveon = action(code, car);
             if(moveon) {
                 queNY.deq();
@@ -77,7 +76,7 @@ function Infix2Postfix(infix_str) {
     }
 }
 
-function Str2Que(in_str) {
+function str2Que(in_str) {
     in_str = in_str.replace(/ /g, '');
     // handle unary -
     if (in_str.charAt(0) == '-')
@@ -121,30 +120,26 @@ function action (code, car) {
             stackTX.pop();
             break;
                        
-        case 5:
-            error_message ('Error');
-            break;
-
         default:
             break;
     }                                                 
     return moveon;
 }
 
-function EvalPolish() {
+function evalPolish() {
     stackPOL = new Stack();
     while(car = queCA.deq()) {
         if (isNumeric(car))
             stackPOL.push(car);
         else
-            DoOp(car);
+            doOp(car);
     }
     var v = stackPOL.pop();
     v = Math.floor(v * 10000000 + 0.5) / 10000000;
     return v;
 }
 
-function DoOp(op) {
+function doOp(op) {
     var oper2 = Number(stackPOL.pop());
     var oper1 = Number(stackPOL.pop());
     var res;
@@ -162,10 +157,10 @@ function DoOp(op) {
 //=================================================================
 // Error checking
 //=================================================================
-function legal_char(c) {
-    var str = get_text();
-    var que = Str2Que(str);
-    var tail = que.peektail();
+function legalChar(c) {
+    var str = getText();
+    var que = str2Que(str);
+    var tail = que.peekTail();
     if(!tail) {
         if(isNumeric(c) || (c=='.') || (c=='-'))
             return true;
@@ -249,43 +244,39 @@ function isNumeric(s) {
     return !isNaN(s);
 }
 
-function get_text() {
+function getText() {
     return elem_display.innerHTML;
 }
 
 function append(c) {
-    Set_text(elem_display.innerHTML + c);
+    SetText(elem_display.innerHTML + c);
 }
 
-function Set_text(str) {
+function SetText(str) {
     elem_display.innerHTML = str;
 }
 
-function set_answer(str) {
+function setAnswer(str) {
     document.getElementById("answer").innerHTML = str;
 }
 
-function clear_answer(){
+function clearAnswer(){
     document.getElementById("answer").innerHTML = "_____";
 }
 
-function key_clear() {
+function keyClear() {
     elem_display.innerHTML = "";
-    clear_answer();
+    clearAnswer();
     parenth = 0;
 }
 
-function key_del() {
+function keyDel() {
     var str = elem_display.innerHTML;
     elem_display.innerHTML = str.slice(0, -1);
-    clear_answer();
+    clearAnswer();
     var tail = str.charAt(str.length - 1);
     if(tail == '(')
         parenth -= 1;
     else if(tail == ')')
         parenth += 1;
-}
-
-function set_message(msg) {
-    document.getElementById("msg").innerHTML = msg;
 }
