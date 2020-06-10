@@ -1,30 +1,30 @@
-var hash;
+class Decision {
+    constructor() {
+        var sym_cols = '!+-x/()';
+        var sym_rows = '!+-x/(';
+        
+        var table = [[4,1,1,1,1,1,5],
+                    [2,2,2,1,1,1,2],
+                    [2,2,2,1,1,1,2],
+                    [2,2,2,2,2,1,2],
+                    [2,2,2,2,2,1,2],
+                    [5,1,1,1,1,1,3]]
 
-function initHash() {
-    var sym_cols = '!+-x/()';
-    var sym_rows = '!+-x/(';
-    
-    var table = [[4,1,1,1,1,1,5],
-    [2,2,2,1,1,1,2],
-    [2,2,2,1,1,1,2],
-    [2,2,2,2,2,1,2],
-    [2,2,2,2,2,1,2],
-    [5,1,1,1,1,1,3]]
-
-    hash = new Map();
-    for(var i = 0; i < 6; i++) {
-        var char_row = sym_rows.charAt(i);
-        for (var j = 0; j < 7; j++) {
-            var char_col = sym_cols.charAt(j);
-            var key = char_row + char_col;
-            hash.set(key, table[i][j]);         
+        this.hash = new Map();
+        for(var i = 0; i < 6; i++) {
+            var char_row = sym_rows.charAt(i);
+            for (var j = 0; j < 7; j++) {
+                var char_col = sym_cols.charAt(j);
+                var key = char_row + char_col;
+                this.hash.set(key, table[i][j]);         
+            }
         }
     }
-}
 
-function getCode(key) {
-    var val = hash.get(key);
-    return val;
+    getCode(key) {
+        var val = this.hash.get(key);
+        return val;
+    }
 }
 
 class Stack {

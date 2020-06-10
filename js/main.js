@@ -4,9 +4,10 @@ var stackTX;
 var queCA;
 var stackPOL;
 var parenth;
+var decision;
 
 function init() {
-    initHash();
+    decision = new Decision();
     parenth = 0;
 
     elem_display = document.getElementById("textbox");
@@ -26,7 +27,7 @@ function keyPressed(me) {
     clearAnswer();
 }
 
-function doit() {
+function equalPressed() {
     var infix_str = getText();
     if(!infix_str)
         return;
@@ -39,17 +40,6 @@ function doit() {
 
     var val = evalPolish()
     setAnswer(val);
-}
-
-function legalExp(str) {
-    if(parenth != 0)
-        return false;
-
-    var c = str.charAt(str.length-1);
-    if(isOperator(c) || (c == '.'))
-        return false;
-        
-    return true;
 }
 
 function infix2Postfix(infix_str) {
@@ -67,7 +57,7 @@ function infix2Postfix(infix_str) {
             queCA.enq(queNY.deq());
         }
         else {
-            var code = getCode(stackTX.peek() + car);
+            var code = decision.getCode(stackTX.peek() + car);
             var moveon = action(code, car);
             if(moveon) {
                 queNY.deq();
@@ -157,6 +147,18 @@ function doOp(op) {
 //=================================================================
 // Error checking
 //=================================================================
+function legalExp(str) {
+    if(parenth != 0)
+        return false;
+
+    var c = str.charAt(str.length-1);
+    if(isOperator(c) || (c == '.'))
+        return false;
+        
+    return true;
+}
+
+// check next char with existing string
 function legalChar(c) {
     var str = getText();
     var que = str2Que(str);
