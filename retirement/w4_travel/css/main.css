@@ -32,6 +32,13 @@ h3 {
     font-size: 100%;
 }
 
+h3c {
+    font-weight: bold;
+    text-align: center;
+    padding-top: 1em;
+    padding-left: 1em;
+}
+
 image_title {
     font-weight: bold;
     margin-left: 45px;
