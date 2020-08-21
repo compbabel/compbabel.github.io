@@ -1,7 +1,22 @@
-#flink {
+image_title {
     font-weight: bold;
-    font-size: 22px;
-    color:blue;
-    text-decoration: underline;
-    
+    margin-left: 45px;
+    font-size: 100%;
+}
+
+.imagea {
+    width:100%;
+    display:block;
+    padding: 5px;
+    border-style: solid;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.imagec {
+    width:100%;
+    display:block;
+    padding: 5px;
+    border-style: solid;
+    margin-left:20px;
 }
