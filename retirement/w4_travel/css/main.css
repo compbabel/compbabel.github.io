@@ -55,11 +55,6 @@ a:hover {
     background-color: yellow;
 }
 
-.legend {
-    margin-left: 40px;
-    font-size: 80%;
-}
-
 .place {
     font-size: 120%;
 }
@@ -67,14 +62,5 @@ a:hover {
 .placebig {
     font-size: 110%;
     text-decoration: underline;
-}
-
-.country  {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: normal;
-    color: lightgray;
-    padding: 1px;
-    background-color: green;
-    margin-left: 20px;
 }
 

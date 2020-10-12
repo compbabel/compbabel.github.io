@@ -49,3 +49,19 @@ a:visited {
 a:hover {
     color: darkgreen ;
 }
+
+
+.country  {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: normal;
+    color: lightgray;
+    padding: 1px;
+    background-color: green;
+    margin-left: 20px;
+    font-size: 120%;
+}
+
+.legend {
+    margin-left: 40px;
+    font-size: 80%;
+}
