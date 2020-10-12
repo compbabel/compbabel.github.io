@@ -2,9 +2,9 @@
 h1 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
-    font-size: 200%;
+    font-size: 250%;
     font-weight: bold;
-    text-decoration: underline overline;
+    /* text-decoration: underline overline; */
 }
 
 h2, h3{
