@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Coding</title>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../css/styles.css" rel="stylesheet">
+    <!-- Fonts CSS-->
+    <link rel="stylesheet" href="../css/heading.css">
+    <link rel="stylesheet" href="../css/body.css">
+    <link rel="stylesheet" href="../css/common.css">
+
+    <link rel="stylesheet" type="text/css" href="css/setgame.css">
+    <script src="js/setgame.js"></script>
+    <script src="js/deck.js"></script>
+</head>
+<body id="page-top">
+    <div class="container" background-color="bg-secondary">
+        <div class="row justify-content-center">
+            <div class="col-sm-12">
+                <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
+                    <div class="container"><a class="navbar-brand js-scroll-trigger" href="../index.html">HOME</a>
+                        <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#proj1">Set Game</a></li>
+                                <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#proj2">Election 2020</a></li> -->
+                                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#proj3"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Portfolio Modal - Title-->
+                <br><br><br><br><br>
+
+                <h2 class="portfolio-modal-title text-secondary mb-0 text-center">CODING PROJECTS</h2>
+                <br>
+                <h3 id=proj1>1. Set Game</h3>
+    
+                <div class = "container my-container">
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-8 my-col">
+                            <div id="textbox"></div>
+                            <p class="mb-5" id="remaining">&nbsp;&nbsp;Cards remaining: </p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-4 my-col">
+                            <!-- <button class="but" id="0" onclick="butPressed(this)">0000</button> -->
+                            <input class="but" type="image" src="img/1.png" id="0" onclick="butPressed(this)"/>
+                        </div>
+                        <div class="col-xs-4 my-col">
+                            <input class="but" type="image" src="img/2.png" id="1" onclick="butPressed(this)"/>
+                        </div>
+                        <div class="col-xs-4 my-col">
+                            <input class="but" type="image" src="img/3.png" id="2" onclick="butPressed(this)"/>
+                        </div>
+                    </div>
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-4 my-col">
+                            <input class="but" type="image" src="img/1.png" id="3" onclick="butPressed(this)"/>
+                        </div>
+                        <div class="col-xs-4 my-col">
+                            <input class="but" type="image" src="img/2.png" id="4" onclick="butPressed(this)"/>
+                        </div>
+                        <div class="col-xs-4 my-col">
+                            <input class="but" type="image" src="img/3.png" id="5" onclick="butPressed(this)"/>
+                        </div>
+                    </div>
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-4 my-col">
+                            <input class="but" type="image" src="img/1.png" id="6" onclick="butPressed(this)"/>
+                        </div>
+                        <div class="col-xs-4 my-col">
+                            <input class="but" type="image" src="img/2.png" id="7" onclick="butPressed(this)"/>
+                        </div>
+                        <div class="col-xs-4 my-col">
+                            <input class="but" type="image" src="img/3.png" id="8" onclick="butPressed(this)"/>
+                        </div>
+                    </div>
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-4 my-col">
+                            <input class="but" type="image" src="img/1.png" id="9" onclick="butPressed(this)"/>
+                        </div>
+                        <div class="col-xs-4 my-col">
+                            <input class="but" type="image" src="img/2.png" id="10" onclick="butPressed(this)"/>
+                        </div>
+                        <div class="col-xs-4 my-col">
+                            <input class="but" type="image" src="img/3.png" id="11" onclick="butPressed(this)"/>
+                        </div>
+                    </div>
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-4 my-col">
+                            <input class="but" type="image" src="img/1.png" id="12" onclick="butPressed(this)"/>
+                        </div>
+                        <div class="col-xs-4 my-col">
+                            <input class="but" type="image" src="img/2.png" id="13" onclick="butPressed(this)"/>
+                        </div>
+                        <div class="col-xs-4 my-col">
+                            <input class="but" type="image" src="img/3.png" id="14" onclick="butPressed(this)"/>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-2 my-col">
+                            <button class="but wide3 red" onclick="collectPressed(this)">Collect Cards</button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-2 my-col">
+                            <button class="but wide2" onclick="hintPressed(this)">Hint</button>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="but wide2" onclick="drawPressed(this)">Draw</button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-2 my-col">
+                            <button class="but wide2" onclick="newPressed(this)">New Game</button>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- <div class="row justify-content-left my-row">
+                        <div class="col-xs-2 my-col">
+                            <button class="but wide2" onclick="debugPressed(this)">Debug</button>
+                        </div>
+                    </div> -->
+                </div>
+                <br><br><br>
+        </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+     <script src="../js/scripts.js"></script>
+    <script> init(); </script>
+</body>
+</html>
