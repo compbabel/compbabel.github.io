@@ -25,7 +25,7 @@ function display() {
     for(var i = 0; i < n; i++)
         setButByID("" + i, board[i], "floralwhite");
 
-    for(var i = n; i < 15; i++)
+    for(var i = n; i < 18; i++)
         setButByID("" + i, "", "floralwhite");
 
     for(var i in selected) {
@@ -39,13 +39,15 @@ function display() {
 
 function setButByID(id, value, color) {
     but = getButElem(id);
+    if(value == "") {
+        but.style.display = "none";
+        return;
+    }
     setButValue(but, value);
-    if(value == "")
-        imgNumb = 0;
-    else
-        imgNumb = +value.charAt(0) * 27 + +value.charAt(1) * 9 + +value.charAt(2) * 3 + +value.charAt(3) + 1;
+    imgNumb = +value.charAt(0) * 27 + +value.charAt(1) * 9 + +value.charAt(2) * 3 + +value.charAt(3) + 1;
     but.src = "img/" + imgNumb + ".png";
     but.style.backgroundColor = color;
+    but.style.display = "block";
 }
 
 function butPressed(me) {
@@ -96,7 +98,8 @@ function checkPressed(me) {
 }
 
 function drawPressed(me) {
-    draw3();
+    if(board.length < 18)
+        draw3();
 }
 
 function draw3() {
