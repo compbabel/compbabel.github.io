@@ -17,7 +17,7 @@ function init() {
     }
 
     display();
-    //setMessage("");
+    setMessage("");
 }
 
 function display() {
@@ -84,6 +84,15 @@ function hintPressed(me) {
         showSelected("hint: ");
         
     display();
+}
+
+function checkPressed(me) {
+    arr = [];
+    arr = findOneSet();
+    if(arr.length == 0)
+        setMessage("None");
+    else
+        setMessage("Yes");
 }
 
 function drawPressed(me) {
@@ -173,12 +182,6 @@ function debugPressed() {
     display();
 }
 
-function showSelected(header) {
-    str = header + selected.length + " ";
-    for(var i in selected)
-        str = str + selected[i] + "-";
-    debugMessage(str);
-}
 //=================================================================
 // Utils
 //=================================================================
@@ -225,3 +228,9 @@ function removeVal(arr, value) {
     });
 }
 
+function showSelected(header) {
+    str = header + selected.length + " ";
+    for(var i in selected)
+        str = str + selected[i] + "-";
+    debugMessage(str);
+}
