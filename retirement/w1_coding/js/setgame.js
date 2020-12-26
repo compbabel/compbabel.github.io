@@ -18,6 +18,7 @@ function init() {
 
     display();
     setMessage("");
+    check();
 }
 
 function display() {
@@ -88,6 +89,13 @@ function hintPressed(me) {
     display();
 }
 
+function check() {
+    arr = [];
+    arr = findOneSet();
+    if(arr.length == 0)
+        setMessage("None");
+}
+
 function checkPressed(me) {
     arr = [];
     arr = findOneSet();
@@ -100,6 +108,7 @@ function checkPressed(me) {
 function drawPressed(me) {
     if(board.length < 18)
         draw3();
+
 }
 
 function draw3() {
@@ -110,6 +119,7 @@ function draw3() {
     }
     display();
     setMessage("");
+    check();
 }
 
 function collectPressed(me) {
@@ -119,8 +129,10 @@ function collectPressed(me) {
     RemoveCollected();  
     if(board.length < 12) 
         draw3();
-    else
+    else {
         display();
+        check();
+    }
 }
 
 function RemoveCollected() {
