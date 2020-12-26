@@ -79,6 +79,13 @@ function checkMatch() {
 }
 
 function hintPressed(me) {
+    if(match(selected)) {
+        selected = [];
+        display();
+        setMessage("");
+        return;
+    }
+
     selected = [];
     selected = findOneSet();
     if(selected.length == 0)
@@ -163,6 +170,9 @@ function findOneSet() {
 
 function match(set)
 {
+    if(set.length < 3)
+        return false;
+        
     cardset = []
     for(var i in set)
         cardset.push(board[set[i]]);
