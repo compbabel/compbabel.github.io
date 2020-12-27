@@ -22,10 +22,10 @@
     margin: 2px;
     margin-top: 0px;
     margin-bottom: 0px;
-    width: 314px;
-    height: 60px;
+    width: 342px;
+    height: 50px;
     text-align: right;
-    font-size: 35px;
+    font-size: 24px;
 }
 
 #answer {
@@ -67,7 +67,7 @@
 }
 
 .wide3 {
-    width: 340px;
+    width: 342px;
     padding: 2px;
 }
 

@@ -19,6 +19,8 @@ function init() {
     display();
     setMessage("");
     check();
+    setStartTime();
+    startStopwatch();
 }
 
 function display() {
