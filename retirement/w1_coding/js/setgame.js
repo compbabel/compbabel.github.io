@@ -16,9 +16,7 @@ function init() {
         board.push(card);
     }
 
-    display();
-    setMessage("");
-    check();
+    displayNewBoard();
     setStartTime();
     startStopwatch();
 }
@@ -115,9 +113,10 @@ function checkPressed(me) {
 }
 
 function drawPressed(me) {
-    if(board.length < 18)
+    if(board.length < 18) {
         draw3();
-
+        displayNewBoard();
+    }
 }
 
 function draw3() {
@@ -126,9 +125,6 @@ function draw3() {
         if(card)
             board.push(card);
     }
-    display();
-    setMessage("");
-    check();
 }
 
 function collectPressed(me) {
@@ -138,10 +134,13 @@ function collectPressed(me) {
     RemoveCollected();  
     if(board.length < 12) 
         draw3();
-    else {
-        display();
-        check();
-    }
+    displayNewBoard();
+}
+
+function displayNewBoard() {
+    display();
+    setMessage("");
+    check();
 }
 
 function RemoveCollected() {
