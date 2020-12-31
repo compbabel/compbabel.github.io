@@ -41,7 +41,7 @@ function display() {
 function setButByID(id, value, color) {
     but = getButElem(id);
     if(value == "") {
-        but.style.display = "none";
+        but.style.display = "None";
         return;
     }
     setButValue(but, value);
@@ -99,8 +99,9 @@ function hintPressed(me) {
 function check() {
     arr = [];
     arr = findOneSet();
-    if(arr.length == 0)
-        setMessage("None");
+    if(arr.length == 0) {
+        setMessage("***NONE***");
+    }
 }
 
 function checkPressed(me) {
@@ -128,8 +129,10 @@ function draw3() {
 }
 
 function collectPressed(me) {
-    if(selected.length != 3)
+    if(!match(selected)) {
+        setMessage("No Match");
         return;
+    }
 
     RemoveCollected();  
     if(board.length < 12) 
