@@ -99,9 +99,7 @@ function hintPressed(me) {
 function check() {
     arr = [];
     arr = findOneSet();
-    if(arr.length == 0) {
-        setMessage("***NONE***");
-    }
+    return arr.length;
 }
 
 function checkPressed(me) {
@@ -142,8 +140,18 @@ function collectPressed(me) {
 
 function displayNewBoard() {
     display();
-    setMessage("");
-    check();
+    var len = check();
+    if(len != 0) {
+        setMessage("");
+        return;
+    }
+
+    if(deck.getCount() != 0) {
+        setMessage("***NONE***");
+    }
+    else {
+        setMessage("Game Over");
+    }
 }
 
 function RemoveCollected() {
