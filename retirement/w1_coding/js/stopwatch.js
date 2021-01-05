@@ -22,5 +22,9 @@ function setStartTime() {
     startTime = new Date();
 }
 
+function stopStopwatch() {
+    // Clear interval
+    clearInterval(elapsedTimeIntervalRef);
+}
 
 

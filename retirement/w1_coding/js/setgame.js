@@ -150,7 +150,9 @@ function displayNewBoard() {
         setMessage("***NONE***");
     }
     else {
-        setMessage("Game Over");
+        elapsedTimeText = document.getElementsByClassName("elapsed-time-text")[0];
+        var str = elapsedTimeText.innerHTML;
+        setMessage("Game Over " + str);
     }
 }
 
