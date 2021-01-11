@@ -43,17 +43,21 @@
                 <h2 class="portfolio-modal-title text-secondary mb-0 text-center">CODING PROJECTS</h2>
                 <br>
                 <h3 id=proj1>1. Set Game</h3>
-                <div class="row justify-content-left my-row">
+                <!-- <div class="row justify-content-left my-row">
                     <div class="col-xs-4 my-col" >
                         <p class="elapsed-time-text">&nbsp;</p>
-                        <!-- <p class="hint-text">&nbsp;&nbsp;1</p> -->
                     </div>
-                </div>
+                </div> -->
                 <div class = "container my-container">
                     <div class="row justify-content-left my-row">
                         <div class="col-xs-8 my-col">
                             <div id="textbox"></div>
-                            <p class="mb-5" id="remaining">&nbsp;&nbsp;Cards remaining: </p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-left my-row">
+                        <div class="mb-12" id="remaining">&nbsp;&nbsp;Cards remaining: </div>
+                        <div class="col-xs-4 my-col" >
+                            <p class="elapsed-time-text">&nbsp;</p>
                         </div>
                     </div>
                     <div class="row justify-content-left my-row">
@@ -123,7 +127,7 @@
                             <input class="but" type="image" src="img/3.png" id="17" onclick="butPressed(this)"/>
                         </div>
                     </div>
-                    <br>
+                    <p id=yesno>No solution</p>
                     <div class="row justify-content-left my-row">
                         <div class="col-xs-2 my-col">
                             <button class="but wide3 red" onclick="collectPressed(this)">Collect Cards</button>

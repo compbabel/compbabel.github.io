@@ -7,6 +7,7 @@ var selected = [];  // array of integer indexes
 function init() {
     elem_message = document.getElementById("textbox");
     elem_remaining = document.getElementById("remaining");
+    elem_yesno = document.getElementById("yesno");
     deck = new Deck();
 
     board = [];
@@ -35,7 +36,7 @@ function display() {
     }
 
     var remain = deck.getCount();
-    elem_remaining.innerHTML = "&nbsp;&nbsp;Cards remaining in deck: " + remain;
+    elem_remaining.innerHTML = "&nbsp;&nbsp;Cards remaining: " + remain;
 }
 
 function setButByID(id, value, color) {
@@ -142,16 +143,18 @@ function displayNewBoard() {
     display();
     var len = check();
     if(len != 0) {
+        setYesNo("");
         setMessage("");
         return;
     }
 
     if(deck.getCount() != 0) {
-        setMessage("***NONE***");
+        setYesNo("No Solution");
     }
     else {
         elapsedTimeText = document.getElementsByClassName("elapsed-time-text")[0];
         var str = elapsedTimeText.innerHTML;
+        setYesNo("");
         setMessage("Game Over " + str);
     }
 }
@@ -230,6 +233,10 @@ function getMessage() {
 
 function setMessage(str) {
     elem_message.innerHTML = str;
+}
+
+function setYesNo(str) {
+    elem_yesno.innerHTML = str;
 }
 
 function debugMessage(str) {
