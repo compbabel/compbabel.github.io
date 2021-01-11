@@ -149,7 +149,7 @@ function displayNewBoard() {
     }
 
     if(deck.getCount() != 0) {
-        setYesNo("No Solution");
+        setYesNo("****No Solution****");
     }
     else {
         elapsedTimeText = document.getElementsByClassName("elapsed-time-text")[0];
