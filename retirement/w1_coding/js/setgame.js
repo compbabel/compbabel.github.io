@@ -171,7 +171,7 @@ function displayNewBoard() {
     }
 
     if(deck.getCount() != 0) {
-        setWarning("****No Solution****");
+        setWarning("**No solution, Draw cards**");
     }
     else {
         elapsedTimeText = document.getElementsByClassName("elapsed-time-text")[0];
