@@ -1,25 +1,113 @@
 var elem_message;
 var elem_remaining;
-var deck;
+var elem_Warning;
+
+var deck = [];
 var board = []; // array of "xxxx", x=0,1,2
 var selected = [];  // array of integer indexes
+
+var gameOver = false;
 
 function init() {
     elem_message = document.getElementById("textbox");
     elem_remaining = document.getElementById("remaining");
-    elem_yesno = document.getElementById("yesno");
-    deck = new Deck();
+    elem_Warning = document.getElementById("warning");
 
+    deck = new Deck();
     board = [];
     selected = [];
+    
     for(var i = 0; i < 12; i++) {
         var card = deck.drawCard();
         board.push(card);
     }
 
     displayNewBoard();
+    gameOver = false;
     setStartTime();
     startStopwatch();
+}
+
+function butPressed(me) {
+    var idn = +me.id;
+    debugMessage("butPressed " + idn);
+
+    if(selected.includes(idn)) {
+        selected = removeVal(selected, idn);
+        display();
+        setMessage("");
+        return;
+    }
+    
+    if(selected.length >= 3)
+        return;
+    
+    selected.push(idn);
+    if(selected.length == 3)
+        checkMatch();
+    display();
+}
+
+function collectPressed(me) {
+    if(gameOver)
+        return;
+
+    if(!match(selected)) {
+        setMessage("No Match");
+        return;
+    }
+
+    RemoveCollected();  
+    if(board.length < 12) 
+        draw3();
+    displayNewBoard();
+}
+
+function hintPressed(me) {
+    if(gameOver)
+        return;
+
+    if(match(selected)) {
+        selected = [];
+        display();
+        setMessage("");
+        return;
+    }
+
+    selected = [];
+    selected = findOneSet();
+    if(selected.length == 0)
+        setMessage("None");
+    else
+        showSelected("hint: ");
+        
+    display();
+}
+
+function drawPressed(me) {
+    if(gameOver)
+        return;
+        
+    if(board.length < 18) {
+        draw3();
+        displayNewBoard();
+    }
+}
+
+function newPressed(me) {
+    init();
+}
+
+function checkPressed(me) {
+    if(gameOver)
+        return;
+
+    arr = [];
+    arr = findOneSet();
+    if(arr.length == 0)
+        setMessage("None");
+    else
+        setMessage("Yes");
 }
 
 function display() {
@@ -52,26 +140,6 @@ function setButByID(id, value, color) {
     but.style.display = "block";
 }
 
-function butPressed(me) {
-    var idn = +me.id;
-    debugMessage("butPressed " + idn);
-
-    if(selected.includes(idn)) {
-        selected = removeVal(selected, idn);
-        display();
-        setMessage("");
-        return;
-    }
-    
-    if(selected.length >= 3)
-        return;
-    
-    selected.push(idn);
-    if(selected.length == 3)
-        checkMatch();
-    display();
-}
-
 function checkMatch() {
     if(match(selected))
         setMessage("Match");
@@ -79,44 +147,10 @@ function checkMatch() {
         setMessage("No Match");
 }
 
-function hintPressed(me) {
-    if(match(selected)) {
-        selected = [];
-        display();
-        setMessage("");
-        return;
-    }
-
-    selected = [];
-    selected = findOneSet();
-    if(selected.length == 0)
-        setMessage("None");
-    else
-        showSelected("hint: ");
-        
-    display();
-}
-
 function check() {
     arr = [];
     arr = findOneSet();
     return arr.length;
-}
-
-function checkPressed(me) {
-    arr = [];
-    arr = findOneSet();
-    if(arr.length == 0)
-        setMessage("None");
-    else
-        setMessage("Yes");
-}
-
-function drawPressed(me) {
-    if(board.length < 18) {
-        draw3();
-        displayNewBoard();
-    }
 }
 
 function draw3() {
@@ -127,35 +161,24 @@ function draw3() {
     }
 }
 
-function collectPressed(me) {
-    if(!match(selected)) {
-        setMessage("No Match");
-        return;
-    }
-
-    RemoveCollected();  
-    if(board.length < 12) 
-        draw3();
-    displayNewBoard();
-}
-
 function displayNewBoard() {
     display();
     var len = check();
     if(len != 0) {
-        setYesNo("");
+        setWarning("");
         setMessage("");
         return;
     }
 
     if(deck.getCount() != 0) {
-        setYesNo("****No Solution****");
+        setWarning("****No Solution****");
     }
     else {
         elapsedTimeText = document.getElementsByClassName("elapsed-time-text")[0];
         var str = elapsedTimeText.innerHTML;
-        setYesNo("");
+        setWarning("");
         setMessage("Game Over " + str);
+        gameOver = true;
     }
 }
 
@@ -166,10 +189,6 @@ function RemoveCollected() {
         board.splice(ind, 1);
     }
     selected = [];
-}
-
-function newPressed(me) {
-    init();
 }
 
 function findOneSet() {
@@ -235,8 +254,8 @@ function setMessage(str) {
     elem_message.innerHTML = str;
 }
 
-function setYesNo(str) {
-    elem_yesno.innerHTML = str;
+function setWarning(str) {
+    elem_Warning.innerHTML = str;
 }
 
 function debugMessage(str) {

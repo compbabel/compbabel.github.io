@@ -54,7 +54,7 @@
     text-decoration: underline;
 }
 
-#yesno {
+#warning {
     font-size: 25px;
     color: red;
 }
@@ -92,3 +92,6 @@
     text-align: center;
 }
 
+.elapsed-time-text {
+    text-align: right;
+}
