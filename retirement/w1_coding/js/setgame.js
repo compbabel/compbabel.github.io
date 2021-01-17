@@ -8,7 +8,7 @@ var selected = [];  // array of integer indexes
 
 var gameOver = false;
 
-function init() {
+function setInit() {
     elem_message = document.getElementById("textbox");
     elem_remaining = document.getElementById("remaining");
     elem_Warning = document.getElementById("warning");

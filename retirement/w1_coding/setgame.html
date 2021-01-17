@@ -20,6 +20,7 @@
     <script src="js/deck.js"></script>
     <script src="js/time-and-date-handling.js"></script>
     <script src="js/stopwatch.js"></script>
+    <script src="js/amor.js"></script>
 </head>
 <body id="page-top">
     <div class="container" background-color="bg-secondary">
@@ -156,21 +157,72 @@
                         </div>
                     </div> -->
                 </div>
-                <br><br><br>
+                <br>
                 <h3 id=proj2>2. Amortization Calcultor</h3>
                 <br>
-                <p class="mb-5">This is a Windows Applicaiton for Amortization Calculations. Click on the link to download.
-                    It might give you warnings about security on download. No worries, no viruses.
-                </p>
-                <a href="rsrc/Amortize.zip" download>Download Amortize.zip (Extract to run)</a>
-                <br><br><br>
+                <form name="amor" id="amor" action="" method="">
+                    <label for="">Price:</label>
+                    <select id="price">
+                        <option value="550">550K</option>
+                        <option value="560">560K</option>
+                        <option value="570">570K</option>
+                        <option value="580">580K</option>
+                        <option value="590">590K</option>
+                        <option value="600">600K</option>
+                        <option value="610">610K</option>
+                        <option value="620">620K</option>
+                        <option value="630">630K</option>
+                        <option value="640">640K</option>
+                        <option value="650">650K</option>
+                    </select>
+                    <br>
+                    <label for="">Intrest:</label>
+                    <select id="rate">
+                        <option value="2.0">2.0%</option>
+                        <option value="2.1">2.1%</option>
+                        <option value="2.2">2.2%</option>
+                        <option value="2.3">2.3%</option>
+                        <option value="2.4">2.4%</option>
+                        <option value="2.5">2.5%</option>
+                        <option value="2.6">2.6%</option>
+                        <option value="2.7">2.7%</option>
+                        <option value="2.8">2.8%</option>
+                        <option value="2.9">2.9%</option>
+                        <option value="3.0">3.0%</option>
+                    </select>
+                    <br>
+                    <label for="">Down %:</label>
+                    <select id="downperc">
+                        <option value="15">15%</option>
+                        <option value="16">16%</option>
+                        <option value="17">17%</option>
+                        <option value="18">18%</option>
+                        <option value="19">19%</option>
+                        <option value="20">20%</option>
+                        <option value="21">21%</option>
+                        <option value="22">22%</option>
+                        <option value="23">23%</option>
+                        <option value="24">24%</option>
+                        <option value="25">25%</option>
+                    </select>
+                    <br><br>
+                    <label id="labdown">Down Payment: $</label><br>
+                    <label id="labdown35k">Down - 35k: $</label><br>
+                    <label id="labmonthly">Monthly Payment: $</label><br>         
+                </form>
+                <button type="button" onclick="amorCalculate()">Calculate</button><br><br><br>
             </div>
     </div>
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-     <script src="../js/scripts.js"></script>
-     <script> init(); </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="../js/scripts.js"></script>
+
+    <script>
+        setInit();
+        amorInit();
+    </script>
+
 </body>
 </html>
