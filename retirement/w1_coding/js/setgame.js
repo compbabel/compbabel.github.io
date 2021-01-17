@@ -95,7 +95,7 @@ function drawPressed(me) {
 }
 
 function newPressed(me) {
-    init();
+    setInit();
 }
 
 function checkPressed(me) {
