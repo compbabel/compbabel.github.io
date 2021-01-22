@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Coding</title>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../css/styles.css" rel="stylesheet">
+    <!-- Fonts CSS-->
+    <link rel="stylesheet" href="../css/heading.css">
+    <link rel="stylesheet" href="../css/body.css">
+    <link rel="stylesheet" href="../css/common.css">
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/main.js"></script>
+    <script src="js/stackqueuehash.js"></script>
+</head>
+<body id="page-top">
+    <div class="container" background-color="bg-secondary">
+        <div class="row justify-content-center">
+            <div class="col-sm-12">
+                <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
+                    <div class="container"><a class="navbar-brand js-scroll-trigger" href="../index.html">HOME</a>
+                        <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#proj1">Calculator</a></li>
+                                <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#proj2">Election 2020</a></li> -->
+                                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#proj3"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Portfolio Modal - Title-->
+                <br><br><br><br><br>
+
+                <h2 class="portfolio-modal-title text-secondary mb-0 text-center">CODING PROJECTS</h2>
+                <br>
+                <h3 id=proj1>1. The Calculator</h3>
+                <p class="mb-5">Implemented in Javascript with Dijkstra's algorithm.</p>
+    
+                <div class = "container my-container">
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-8 my-col">
+                            <div id="textbox"></div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-8 my-col">
+                            <div id="answer">_____</div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-2 my-col">
+                            <button class="key red" onclick="keyClear()">C</button>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">(</button>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">)</button>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">/</button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">7</button>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">8</button>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">9</button>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">x</button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">4</button>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">5</button>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">6</button>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">-</button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">1</button>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">2</button>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">3</button>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">+</button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-left my-row">
+                        <div class="col-xs-2 my-col">
+                            <input class="key" type="image" src="img/bs4.png" onclick="keyDel()"/>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">0</button>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="keyPressed(this)">.</button>
+                        </div>
+                        <div class="col-xs-2 my-col">
+                            <button class="key" onclick="equalPressed()">=</button>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+                <!-- <h3 id=proj2>2. Election 2020</h3>
+                <br>
+                <div class="row">
+                    <div class="col-md-9">
+                        <image_title> <a name="xxx"></a>(screen shot)</image_title>
+                        <img src="img/Election2020.jpg" class="imagec">
+                        <p class="legend"></p>
+                    </div>
+                </div>
+                <p class="mb-5">This is a program for the 2020 presidential election prediction. It tracks the 
+                    battleground states polls and makes 10,000 simulations. The results are shown as the probabilities
+                    and the predicted electoral votes. The calculations are totally based on the poll numbers, no other
+                    factors are considered. Runs on Windows.
+                    It might give you warnings about security on download. No worries, no viruses.
+                </p>
+                <a href="rsrc/Election2020.zip" download>Download Election2020.exe (Extract to run)</a>
+                <br><br><br> -->
+        </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+     <script src="../js/scripts.js"></script>
+    <script> init(); </script>
+</body>
+</html>
