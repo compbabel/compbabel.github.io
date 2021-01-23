@@ -29,6 +29,9 @@ function setInit() {
 }
 
 function butPressed(me) {
+    if(gameOver)
+        return;
+        
     var idn = +me.id;
     debugMessage("butPressed " + idn);
 
@@ -52,6 +55,11 @@ function collectPressed(me) {
     if(gameOver)
         return;
 
+    if(selected.length != 3) {
+        setMessage("Please select 3 cards");
+        return;
+    }
+           
     if(!match(selected)) {
         setMessage("No Match");
         return;
@@ -87,7 +95,14 @@ function hintPressed(me) {
 function drawPressed(me) {
     if(gameOver)
         return;
-        
+
+    arr = [];
+    arr = findOneSet();
+    if(arr.length != 0) {
+        setWarning("*There is a set");
+        return;
+    }
+            
     if(board.length < 18) {
         draw3();
         displayNewBoard();
@@ -171,7 +186,7 @@ function displayNewBoard() {
     }
 
     if(deck.getCount() != 0) {
-        setWarning("**No solution, Draw cards**");
+        setWarning("*No matching set, Draw cards");
     }
     else {
         elapsedTimeText = document.getElementsByClassName("elapsed-time-text")[0];
