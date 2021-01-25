@@ -65,9 +65,11 @@ function collectPressed(me) {
         return;
     }
 
-    RemoveCollected();  
-    if(board.length < 12) 
+    RemoveCollected();
+    if(findOneSet().length == 0) {    // draw only if there is no set
+        if(board.length < 12) 
         draw3();
+    }
     displayNewBoard();
 }
 
