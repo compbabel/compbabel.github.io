@@ -94,7 +94,7 @@ function hintPressed(me) {
     display();
 }
 
-function drawPressed(me) {
+function drawPressed() {
     if(gameOver)
         return;
 
@@ -188,7 +188,8 @@ function displayNewBoard() {
     }
 
     if(deck.getCount() != 0) {
-        setWarning("*No matching set, Draw cards");
+        //setWarning("*No matching set, Draw cards");
+        drawPressed();
     }
     else {
         elapsedTimeText = document.getElementsByClassName("elapsed-time-text")[0];
