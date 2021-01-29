@@ -268,7 +268,9 @@ function getMessage() {
 }
 
 function setMessage(str) {
-    elem_message.innerHTML = str;
+    // elem_message.innerHTML = str;
+    str = "* " + str;
+    setWarning(str);
 }
 
 function setWarning(str) {
