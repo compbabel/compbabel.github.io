@@ -195,6 +195,7 @@ function displayNewBoard() {
         var str = elapsedTimeText.innerHTML;
         setWarning("");
         setMessage("Game Over " + str);
+        stopStopwatch();
         gameOver = true;
     }
 }
