@@ -26,5 +26,3 @@ function stopStopwatch() {
     // Clear interval
     clearInterval(elapsedTimeIntervalRef);
 }
-
-
