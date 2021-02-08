@@ -13,9 +13,9 @@ function amorInit() {
     elem_textdown35k = document.getElementById("labdown35k");
     elem_textmonthly = document.getElementById("labmonthly");
 
-    elem_price.value = 600;
-    elem_rate.value = 2.8;
-    elem_downperc.value = 18;           
+    elem_price.value = 650;
+    elem_rate.value = 2.5;
+    elem_downperc.value = 16;           
     amorCalculate();
 }
 
