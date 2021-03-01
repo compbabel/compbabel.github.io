@@ -158,7 +158,7 @@
                 <br>
                 <form name="amor" id="amor" action="" method="">
                     <label for="">Price:</label>
-                    <select id="price">
+                    <select id="price" onchange="amorCalculate()">
                         <option value="550">550K</option>
                         <option value="560">560K</option>
                         <option value="570">570K</option>
@@ -178,7 +178,7 @@
                     </select>
                     <br>
                     <label for="">Intrest:</label>
-                    <select id="rate">
+                    <select id="rate" onchange="amorCalculate()">
                         <option value="2.0">2.0%</option>
                         <option value="2.1">2.1%</option>
                         <option value="2.2">2.2%</option>
@@ -193,7 +193,7 @@
                     </select>
                     <br>
                     <label for="">Down %:</label>
-                    <select id="downperc">
+                    <select id="downperc" onchange="amorCalculate()">
                         <option value="15">15%</option>
                         <option value="16">16%</option>
                         <option value="17">17%</option>
@@ -211,7 +211,8 @@
                     <label id="labdown35k">Down - 35k: $</label><br>
                     <label id="labmonthly">Monthly Payment: $</label><br>         
                 </form>
-                <button type="button" onclick="amorCalculate()">Calculate</button><br><br><br>
+                <br><br><br>
+                <!-- <button type="button" onclick="amorCalculate()">Calculate</button><br><br><br> -->
             </div>
     </div>
     <!-- Bootstrap core JS-->
