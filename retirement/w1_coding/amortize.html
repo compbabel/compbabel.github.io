@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <meta http-equiv="refresh" content="0; URL=https://www.google.com/" /> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Coding</title>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../css/styles.css" rel="stylesheet">
+    <!-- Fonts CSS-->
+    <link rel="stylesheet" href="../css/heading.css">
+    <link rel="stylesheet" href="../css/body.css">
+    <link rel="stylesheet" href="../css/common.css">
+
+    <link rel="stylesheet" type="text/css" href="css/setgame.css">
+    <script src="js/setgame.js"></script>
+    <script src="js/deck.js"></script>
+    <script src="js/time-and-date-handling.js"></script>
+    <script src="js/stopwatch.js"></script>
+    <script src="js/amor.js"></script>
+</head>
+<body id="page-top">
+    <div class="container" background-color="bg-secondary">
+        <div class="row justify-content-center">
+            <div class="col-sm-12">
+                <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
+                    <div class="container"><a class="navbar-brand js-scroll-trigger" href="../index.html">HOME</a>
+                        <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#proj1">Amortization</a></li>
+                                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#proj2"></a></li>
+                                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#proj3"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Portfolio Modal - Title-->
+                <br><br><br><br><br>
+
+                <h2 class="portfolio-modal-title text-secondary mb-0 text-center">CODING PROJECTS</h2>
+                <br>
+
+                <h3 id=proj1>1. Amortization Calcultor</h3>
+                <br>
+                <form name="amor" id="amor" action="" method="">
+                    <label for="">Price:</label>
+                    <select id="price" onchange="amorCalculate()">
+                        <option value="550">550K</option>
+                        <option value="560">560K</option>
+                        <option value="570">570K</option>
+                        <option value="580">580K</option>
+                        <option value="590">590K</option>
+                        <option value="600">600K</option>
+                        <option value="610">610K</option>
+                        <option value="620">620K</option>
+                        <option value="630">630K</option>
+                        <option value="640">640K</option>
+                        <option value="650">650K</option>
+                        <option value="660">660K</option>
+                        <option value="670">670K</option>
+                        <option value="680">680K</option>
+                        <option value="690">690K</option>
+                        <option value="700">700K</option>
+                    </select>
+                    <br>
+                    <label for="">Intrest:</label>
+                    <select id="rate" onchange="amorCalculate()">
+                        <option value="2.0">2.0%</option>
+                        <option value="2.1">2.1%</option>
+                        <option value="2.2">2.2%</option>
+                        <option value="2.3">2.3%</option>
+                        <option value="2.4">2.4%</option>
+                        <option value="2.5">2.5%</option>
+                        <option value="2.6">2.6%</option>
+                        <option value="2.7">2.7%</option>
+                        <option value="2.8">2.8%</option>
+                        <option value="2.9">2.9%</option>
+                        <option value="3.0">3.0%</option>
+                    </select>
+                    <br>
+                    <label for="">Down %:</label>
+                    <select id="downperc" onchange="amorCalculate()">
+                        <option value="15">15%</option>
+                        <option value="16">16%</option>
+                        <option value="17">17%</option>
+                        <option value="18">18%</option>
+                        <option value="19">19%</option>
+                        <option value="20">20%</option>
+                        <option value="21">21%</option>
+                        <option value="22">22%</option>
+                        <option value="23">23%</option>
+                        <option value="24">24%</option>
+                        <option value="25">25%</option>
+                    </select>
+                    <br><br>
+                    <label id="labdown">Down Payment: $</label><br>
+                    <label id="labdown35k">Down - 35k: $</label><br>
+                    <label id="labmonthly">Monthly Payment: $</label><br>         
+                </form>
+                <br><br><br>
+                <!-- <button type="button" onclick="amorCalculate()">Calculate</button><br><br><br> -->
+            </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="../js/scripts.js"></script>
+
+    <script>
+        setInit();
+        amorInit();
+    </script>
+
+</body>
+</html>
