@@ -1,0 +1,64 @@
+
+h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    font-size: 250%;
+    font-weight: bold;
+}
+
+h2, h3{
+    font-weight: bold;
+    text-align: left;
+    padding-top: 1em;
+    padding-left: 1em;
+}
+
+h2 {
+    font-size: 120%;
+}
+
+h3 {
+    margin-left: 30px;
+    font-size: 100%;
+}
+
+h3c {
+    font-weight: bold;
+    text-align: center;
+    padding-top: 1em;
+    padding-left: 1em;
+}
+
+
+p {
+    color: purple;
+    font-family: Helvetica, sans-serif;
+    line-height: 150%;
+    margin-left: 20px;
+}
+
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: darkmagenta;
+}
+
+a:hover {
+    color: green;
+}
+
+.hlite {
+    background-color: yellow;
+}
+
+.place {
+    font-size: 120%;
+}
+
+.placebig {
+    font-size: 110%;
+    text-decoration: underline;
+}
+
