@@ -4,6 +4,7 @@ const elemRating = document.getElementById("rating");
 const elemStar1 = document.getElementById("star1");
 const elemStar2 = document.getElementById("star2");
 const elemStar3 = document.getElementById("star3");
+const elemMovieImg = document.getElementById("movimg");
 let movies;
 
 function suggest() {
@@ -16,6 +17,12 @@ function suggest() {
   elemStar1.innerText = stars[0];
   elemStar2.innerText = stars[1];
   elemStar3.innerText = stars[2];
+  fillImg(movie)
+}
+
+function fillImg(movie) {
+  let line = `<img src="${movie.image}" alt="img/movie1.jpg" class="movie-img" />`
+  elemMovieImg.innerHTML = line
 }
 
 async function getMovies() {
