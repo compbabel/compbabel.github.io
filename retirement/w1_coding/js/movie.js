@@ -11,13 +11,13 @@ function suggest() {
   let index = getRandomInt(movies.items.length);
   const movie = movies.items[index];
 
+  fillImg(movie)
   elemTitle.innerText = movie.fullTitle;
   elemRating.innerText = movie.imDbRating;
   let stars = movie.crew.split(",");
   elemStar1.innerText = stars[0];
   elemStar2.innerText = stars[1];
   elemStar3.innerText = stars[2];
-  fillImg(movie)
 }
 
 function fillImg(movie) {
