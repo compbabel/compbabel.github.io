@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Movie Suggestions</title>
+    <link rel="stylesheet" href="css/movie.css" />
+  </head>
+  <body>
+    <h1>Movie Suggestions</h1>
+    <h3>(Courtesy of IMDB)</h3>
+    <img src="img/movie1.jpg" alt="" class="movie-img" />
+
+    <div class="container">
+      <button class="btn" id="suggest" onclick="suggest()">Click for a movie suggestion</button>
+
+    <ul class="items1">
+        <li>
+          <div class="item">Title:</div>
+          <div class="description" id="movie-title">
+            xxx yyy zzz
+          </div>
+        </li>
+        <li>
+          <div class="item">Rating:</div>
+          <div class="Description" id="rating">xxx</div>
+        </li>
+        <li>
+          <div class="item">Starring:</div>
+          <div class="Description" id="starring">
+            <ul class="items2">
+              <li id="star1">star1</li>
+              <li id="star2">star2</li>
+              <li id="star3">star3</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <script src="js/movie.js"></script>
+  </body>
+</html>
