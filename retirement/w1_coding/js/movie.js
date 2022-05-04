@@ -21,7 +21,7 @@ function suggest() {
 }
 
 function fillImg(movie) {
-  let line = `<img src="${movie.image}" alt="img/movie1.jpg" class="movie-img" />`
+  let line = `<img src=${movie.image} alt="img/movie1.jpg" class="movie-img" />`
   elemMovieImg.innerHTML = line
 }
 
