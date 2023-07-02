@@ -1,3 +1,5 @@
+Use the following commands to commit and upload:
+
 git status
 git add .
 git commit -m "ttt"
