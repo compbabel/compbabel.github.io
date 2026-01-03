@@ -1,6 +1,16 @@
-Use the following commands to commit and upload:
+to commit and upload:
 
+1) Open Terminal at comp babel.github.io by right-click on the folder name in the path bar and select "New Terminal at folder"
+
+2) on Terminal
 git status
 git add .
 git commit -m "ttt"
-git push -u origin master
+
+Old command for push, no longer works:
+//git push -u origin master
+
+3) Open Github desktop
+Click the "Push" button
+
+That's it. 
