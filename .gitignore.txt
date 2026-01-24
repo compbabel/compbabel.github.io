@@ -1,0 +1,69 @@
+############################
+# macOS / OS junk
+############################
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+############################
+# Editor / IDE junk
+############################
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+############################
+# Logs & temp files
+############################
+*.log
+*.tmp
+*.temp
+
+############################
+# Archives (usually accidental commits)
+############################
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+
+############################
+# Backups
+############################
+*.bak
+*.old
+*.orig
+backup/
+backups/
+
+############################
+# Build / export directories
+# (safe to ignore if you don’t hand-edit them)
+############################
+dist/
+build/
+out/
+.tmp/
+.cache/
+
+############################
+# Dependency folders
+# (only include if applicable)
+############################
+node_modules/
+vendor/
+
+############################
+# DO NOT ignore video files
+# (explicit allow, for clarity)
+############################
+!*.mp4
+!*.mov
+!*.webm
+!*.mkv
