@@ -1,6 +1,6 @@
 to commit and upload:
 
-1) Open Terminal at comp babel.github.io by right-click on the folder name in the path bar and select "New Terminal at folder"
+1) Open Terminal at compbabel.github.io by right-click on the folder name in the path bar and select "New Terminal at folder"
 
 2) on Terminal
 git status
